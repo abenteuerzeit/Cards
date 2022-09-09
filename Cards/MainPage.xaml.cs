@@ -18,7 +18,7 @@ namespace Cards
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void dealClick(object sender, RoutedEventArgs e)
