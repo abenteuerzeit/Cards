@@ -17,14 +17,8 @@ namespace Cards
             return result;
         }
 
-        public Suit CardSuit()
-        {
-            return _suit;
-        }
+        public Suit CardSuit => _suit;
 
-        public Value CardValue()
-        {
-            return _value;
-        }
+        public Value CardValue => _value;
     }
 }

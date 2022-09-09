@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Cards
 {
@@ -6,18 +7,20 @@ namespace Cards
     {
         public const int NumSuits = 4;
         public const int CardsPerSuit = 13;
-        private readonly PlayingCard[,] _cardPack;
+        private Dictionary<Suit, List<PlayingCard>> _cardPack;
         private readonly Random _randomCardSelector = new();
 
         public Pack()
         {
-            _cardPack = new PlayingCard[NumSuits, CardsPerSuit];
+            _cardPack = new Dictionary<Suit, List<PlayingCard>>(NumSuits);
             for (Suit suit = Suit.Clubs; suit <= Suit.Spades; suit++)
             {
+                List<PlayingCard> cardsInSuit = new(CardsPerSuit);
                 for (Value value = Value.Two; value <= Value.Ace; value++)
                 {
-                    _cardPack[(int)suit, (int)value] = new PlayingCard(suit, value);
+                    cardsInSuit.Add(new PlayingCard(suit, value));
                 }
+                _cardPack.Add(suit, cardsInSuit);
             }
         }
 
@@ -35,8 +38,9 @@ namespace Cards
                 value = (Value)_randomCardSelector.Next(CardsPerSuit);
             }
 
-            PlayingCard card = _cardPack[(int)suit, (int)value];
-            _cardPack[(int)suit, (int)value] = null;
+            List<PlayingCard> cardsInSuit = _cardPack[suit];
+            PlayingCard card = cardsInSuit.Find(c => c.CardValue == value);
+            cardsInSuit.Remove(card);
             return card;
         }
 
@@ -54,6 +58,10 @@ namespace Cards
             return result;
         }
 
-        private bool IsCardAlreadyDealt(Suit suit, Value value) => (_cardPack[(int)suit, (int)value] == null);
+        private bool IsCardAlreadyDealt(Suit suit, Value value)
+        {
+            List<PlayingCard> cardsInSuit = _cardPack[suit];
+            return !cardsInSuit.Exists(c => c.CardSuit == suit && c.CardValue == value);
+        }
     }
 }

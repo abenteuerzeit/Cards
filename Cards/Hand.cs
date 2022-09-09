@@ -1,21 +1,20 @@
 using System;
+using System.Collections.Generic;
 
 namespace Cards
 {
     class Hand
     {
         public const int HandSize = 13;
-        private readonly PlayingCard[] _cards = new PlayingCard[HandSize];
-        private int _playingCardCount = 0;
+        private readonly List<PlayingCard> _cards = new(HandSize);
 
         public void AddCardToHand(PlayingCard cardDealt)
         {
-            if (_playingCardCount >= HandSize)
+            if (_cards.Count >= HandSize)
             {
                 throw new ArgumentException("Too many cards");
             }
-            _cards[_playingCardCount] = cardDealt;
-            _playingCardCount++;
+            _cards.Add(cardDealt);
         }
 
         public override string ToString()
