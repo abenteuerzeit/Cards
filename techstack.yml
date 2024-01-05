@@ -1,7 +1,8 @@
 repo_name: abenteuerzeit/Cards
 report_id: 1a9d6afe0f6692c3c0b54f61ca5ea699
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-12T10:27:10+00:00'
+timestamp: '2024-01-05T08:49:25+00:00'
 requested_by: abenteuerzeit
 provider: github
 branch: master
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/abenteuerzeit/Cards
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -25,6 +27,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/abenteuerzeit/Cards
   detection_source: Repo Metadata
 - name: Visual Studio
   description: State-of-the-art tools and services that you can use to create great
@@ -35,6 +38,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Integrated Development Environment
   image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/abenteuerzeit/Cards/blob/master/Cards.sln
   detection_source: Cards.sln
   last_updated_by: abenteuerzeit
   last_updated_on: 2022-08-24 08:46:12.000000000 Z
